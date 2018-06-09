@@ -14,17 +14,9 @@ import org.antlr.jetbrains.adaptor.SymtabUtils;
  *  node will need to implement PsiNamedElement.
  */
 public class ANTLRPsiLeafNode extends LeafPsiElement {
+
 	public ANTLRPsiLeafNode(IElementType type, CharSequence text) {
 		super(type, text);
 	}
 
-	/** We're a leaf node so must start looking at parent node for a scope.
-	 *  This assumes a reasonable getContext() implementation for your
-	 *  internal, non-leaf PSI nodes. It's easiest to use {@link ANTLRPsiNode}
-	 *  subclasses for your internal notes.
-	 */
-	@Override
-	public PsiElement getContext() {
-		return SymtabUtils.getContextFor(this);
-	}
 }

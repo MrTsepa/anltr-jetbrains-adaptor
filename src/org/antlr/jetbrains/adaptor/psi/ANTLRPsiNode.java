@@ -41,15 +41,4 @@ public class ANTLRPsiNode extends ASTWrapperPsiElement {
 	@NotNull
 	public PsiElement[] getChildren() { return Trees.getChildren(this); }
 
-	/** For this internal PSI node, look upward for our enclosing scope.
-	 *  Start looking for a scope at our parent node so getContext()
-	 *  returns the enclosing scope (context) when this is a ScopeNode.
-	 *
-	 *  From the return to scope node, you typically look for a declaration
-	 *  by looking at its children.
-	 */
-	@Override
-	public ScopeNode getContext() {
-		return SymtabUtils.getContextFor(this);
-	}
 }
